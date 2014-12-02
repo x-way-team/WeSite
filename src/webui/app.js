@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -20,6 +21,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUnintialized: true
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -56,7 +63,7 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var server = app.listen(process.env.PORT || 3000, function(){
+var server = app.listen(process.env.PORT, function() {
     console.log('listening on port %d', server.address().port);
 });
 
