@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(session({
     secret: 'keyboard cat',
     resave: true,
-    saveUninitialized: true
+    saveUnintialized: true
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
