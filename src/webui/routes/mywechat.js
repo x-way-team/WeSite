@@ -96,7 +96,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
         title: '欢迎'+ message.FromUserName + '光临',
         description: '小站正在建设中，欢迎您的加入，敬请期待',
         picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: message.Url;
+        url: message.Url
     }]);
 }).event(function (message, req, res, next) {
   	// message为事件内容
@@ -112,7 +112,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
 
     res.reply({
     	type:'text',
-    	content: message.MsgType+':'+message.Latitude+'-'+message.Longitude+'-'+message.Precision;
+    	content: message.MsgType+':'+message.Latitude+'-'+message.Longitude+'-'+message.Precision
     });
 }).middlewarify());
 
