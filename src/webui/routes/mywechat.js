@@ -27,12 +27,12 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MediaId: 'media_id',
   	// MsgId: '5837397301622104395' }
   	console.log(message);
-    res.reply([{
+    res.reply({
         type:'image',
         content:{
         	mediaId: message.MediaId
         }
-    }]);
+    });
 }).voice(function (message, req, res, next) {
   	// message为音频内容
   	// { ToUserName: 'gh_d3e07d51b513',
@@ -44,12 +44,12 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837397520665436492' }
   	console.log(message);
 
-    res.reply([{
+    res.reply({
         type: 'voice',
         content: {
         	mediaId: message.MediaId
         }
-    }]);
+    });
 }).video(function (message, req, res, next) {
   	// message为视频内容
   	// { ToUserName: 'gh_d3e07d51b513',
@@ -61,12 +61,12 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837397520665436492' }
   	console.log(message);
 
-    res.reply([{
+    res.reply({
         type: 'video',
         content: {
         	mediaId: message.MediaId
         }
-    }]);
+    });
 }).location(function (message, req, res, next) {
   	// message为位置内容
  	// { ToUserName: 'gh_d3e07d51b513',
@@ -80,10 +80,10 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837398761910985062' }
   	console.log(message);
 
-    res.reply([{
+    res.reply({
         type: 'text',
         content: message.Location_X + ':' + message.Location_Y
-    }]);
+    });
 }).link(function (message, req, res, next) {
   	// message为链接内容
   	// { ToUserName: 'gh_d3e07d51b513',
