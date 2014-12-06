@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var wechat = require('wechat');
 
-router.get('/wechat', wechat('nanssywillcatchYOU', function (req, res, next) {
+router.get('/', wechat('nanssywillcatchYOU', function (req, res, next) {
     res.reply([{
         title: '欢迎您的光临',
         description: '小站正在建设中，欢迎您的加入，敬请期待',
@@ -12,7 +12,7 @@ router.get('/wechat', wechat('nanssywillcatchYOU', function (req, res, next) {
 }));
 
 
-router.post('/wechat', wechat('nanssywillcatchYOU', function (req, res, next) {
+router.post('/', wechat('nanssywillcastchYOU', function (req, res, next) {
     res.reply([{
         title: '欢迎您的光临',
         description: '小站正在建设中，欢迎您的加入，敬请期待',
