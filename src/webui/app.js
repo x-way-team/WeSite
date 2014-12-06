@@ -61,8 +61,8 @@ app.use('/wechat', wechat('nanssywillcatchYOU', function (req, res, next) {
     // 回复高富帅(图文回复)
     res.reply([
       {
-        title: '你来我家接我吧',
-        description: '这是女神与高富帅之间的对话',
+        title: '欢迎您的光临',
+        description: '小站正在建设中，欢迎进的加入，敬请期待',
         picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
         url: 'http://nodeapi.cloudfoundry.com/'
       }
