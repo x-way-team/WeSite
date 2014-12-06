@@ -28,10 +28,10 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837397301622104395' }
 
     res.reply([{
-        title: '欢迎'+ message.FromUserName + '光临',
-        description: '小站正在建设中，欢迎您的加入，敬请期待',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
+        type:'image',
+        content:{
+        	mediaId: message.MediaId
+        }
     }]);
 }).voice(function (message, req, res, next) {
   	// message为音频内容
@@ -44,10 +44,10 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837397520665436492' }
 
     res.reply([{
-        title: '欢迎'+ message.FromUserName + '光临',
-        description: '小站正在建设中，欢迎您的加入，敬请期待',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
+        type: 'voice',
+        content: {
+        	mediaId: message.MediaId
+        }
     }]);
 }).video(function (message, req, res, next) {
   	// message为视频内容
@@ -60,10 +60,10 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837397520665436492' }
 
     res.reply([{
-        title: '欢迎'+ message.FromUserName + '光临',
-        description: '小站正在建设中，欢迎您的加入，敬请期待',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
+        type: 'video',
+        content: {
+        	mediaId: message.MediaId
+        }
     }]);
 }).location(function (message, req, res, next) {
   	// message为位置内容
@@ -78,10 +78,8 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MsgId: '5837398761910985062' }
 
     res.reply([{
-        title: '欢迎'+ message.FromUserName + '光临',
-        description: '小站正在建设中，欢迎您的加入，敬请期待',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
+        type: 'text',
+        content: message.Location_X + ':' + message.Location_Y
     }]);
 }).link(function (message, req, res, next) {
   	// message为链接内容
@@ -98,7 +96,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
         title: '欢迎'+ message.FromUserName + '光临',
         description: '小站正在建设中，欢迎您的加入，敬请期待',
         picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
+        url: message.Url;
     }]);
 }).event(function (message, req, res, next) {
   	// message为事件内容
@@ -111,13 +109,11 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// Longitude: '113.352425',
   	// Precision: '119.385040',
   	// MsgId: '5837397520665436492' }
-  	
-    res.reply([{
-        title: '欢迎'+ message.FromUserName + '光临',
-        description: '小站正在建设中，欢迎您的加入，敬请期待',
-        picurl: 'http://nodeapi.cloudfoundry.com/qrcode.jpg',
-        url: 'http://nodeapi.cloudfoundry.com/'
-    }]);
+
+    res.reply({
+    	type:'text',
+    	content: message.MsgType+':'+message.Latitude+'-'+message.Longitude+'-'+message.Precision;
+    });
 }).middlewarify());
 
 
