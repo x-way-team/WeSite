@@ -26,7 +26,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// PicUrl: 'http://mmsns.qpic.cn/mmsns/bfc815ygvIWcaaZlEXJV7NzhmA3Y2fc4eBOxLjpPI60Q1Q6ibYicwg/0',
   	// MediaId: 'media_id',
   	// MsgId: '5837397301622104395' }
-
+  	console.log(message);
     res.reply([{
         type:'image',
         content:{
@@ -42,6 +42,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MediaId: 'OMYnpghh8fRfzHL8obuboDN9rmLig4s0xdpoNT6a5BoFZWufbE6srbCKc_bxduzS',
   	// Format: 'amr',
   	// MsgId: '5837397520665436492' }
+  	console.log(message);
 
     res.reply([{
         type: 'voice',
@@ -58,6 +59,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// MediaId: 'OMYnpghh8fRfzHL8obuboDN9rmLig4s0xdpoNT6a5BoFZWufbE6srbCKc_bxduzS',
   	// ThumbMediaId: 'media_id',
   	// MsgId: '5837397520665436492' }
+  	console.log(message);
 
     res.reply([{
         type: 'video',
@@ -76,6 +78,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// Scale: '15',
   	// Label: {},
   	// MsgId: '5837398761910985062' }
+  	console.log(message);
 
     res.reply([{
         type: 'text',
@@ -91,6 +94,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// Description: '公众平台官网链接',
   	// Url: 'http://1024.com/',
   	// MsgId: '5837397520665436492' }
+  	console.log(message);
 
     res.reply([{
         title: '欢迎'+ message.FromUserName + '光临',
@@ -109,6 +113,7 @@ router.use('/', wechat(myWechatToken).text(function (message, req, res, next) {
   	// Longitude: '113.352425',
   	// Precision: '119.385040',
   	// MsgId: '5837397520665436492' }
+  	console.log(message);
 
     res.reply({
     	type:'text',
